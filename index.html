@@ -5,14 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/assets/jdisc.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style.sass">
     <title>JDisc Calculator</title>
 
 </head>
 
 <body>
- 
-<button class="button_submit" role="button">Submit</button>
+    <label for="inp" class="inp">
+        <input type="number" id="inp" placeholder="&nbsp;" min="0" oninput="validity.valid||(value='');">
+        <span class="label">Device 1</span>
+        <span class="focus-bg"></span>
+    </label>
+    <label for="inp" class="inp">
+        <input type="number" id="inp" placeholder="&nbsp;" min="0" oninput="validity.valid||(value='');">
+        <span class="label">Device 2</span>
+        <span class="focus-bg"></span>
+    </label>
+    <label for="inp" class="inp">
+        <input type="number" id="inp" placeholder="&nbsp;" min="0" oninput="validity.valid||(value='');">
+        <span class="label">Device 3</span>
+        <span class="focus-bg"></span>
+    </label>
+    <label for="inp" class="inp">
+        <input type="number" id="inp" placeholder="&nbsp;" min="0" oninput="validity.valid||(value='');">
+        <span class="label">Device 4</span>
+        <span class="focus-bg"></span>
+    </label>
+    <button class="button_submit" role="button">Submit</button>
 
 </body>
 </html>
