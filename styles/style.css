@@ -96,13 +96,41 @@
   font-size: 18px;
 }
 .home-button {
-  left: 30%;
-  color: rgb(255, 255, 255);
-  width: 157px;
+  left: 40px;
   bottom: 19px;
   position: absolute;
   text-align: center;
-  background-color: rgb(83, 175, 73);
+  text-transform: uppercase;
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  
+}
+.home-button:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .home-button {
+    padding: 10px 30px;
+  }
 }
 .home-container2 {
   top: 377px;
@@ -146,13 +174,40 @@
 }
 .home-button1 {
   left: 40px;
-  color: #ffffff;
-  width: 283px;
-  bottom: 20px;
+  bottom: 17px;
   position: absolute;
   text-align: center;
   text-transform: uppercase;
-  background-color: #53af49;
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  
+}
+.home-button1:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .home-button1 {
+    padding: 10px 30px;
+  }
 }
 .home-text16 {
   left: 40px;
