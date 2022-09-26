@@ -205,10 +205,25 @@
                 document.getElementById('tokens').innerHTML = totaltokens;
 
             }else{
-            document.getElementById('tokens').innerHTML = x+y+z+a;
+            let totaltokens = x+y+z+a;
+            document.getElementById('tokens').innerHTML = totaltokens;
             }
-
-
+            let cost = 0;
+            if (totaltokens>0 & totaltokens<=1000) {
+                cost = (totaltokens*1.1);
+            }
+            else if (totaltokens>1000 & totaltokens<=3000) {
+                cost = ((1000*1.1)+(totaltokens-1000)*0.99);
+            } 
+            else if (totaltokens>3000 & totaltokens<=5000) {
+                cost = ((1000*1.1)+(2000*0.99)+(totaltokens-3000)*0.88);
+            }
+            else if (totaltokens>5000 & totaltokens<=10000) {
+                cost = ((1000*1)+(2000*0.99)+(2000*0.88)+(totaltokens-5000)*0.77)
+            }
+            else if (totaltokens>1000 & totaltokens<=15000) {
+                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(5000*0.77)+(totaltokens-10000)*0.66)
+            }
             
         }
     </script>
