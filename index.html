@@ -6,14 +6,212 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/assets/jdisc.png">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/style.sass">
     <title>JDisc Calculator</title>
 
 </head>
 
 <body>
+    <div>
+        <link href="./home.css" rel="stylesheet" />
+        <div class="home-container3">
+            <span class="home-text31">
+                <br />
+                <span>Enter how many devices you want:</span>
+            </span>
 
-    <button class="button_submit" role="button">Submit</button>
-    
-</body>
+            <span class="home-text22">Device 1</span>
+            <span class="home-text23">20 Credits Per Device</span>
+            <input
+              type="number"
+              id="dev1"
+              min="0"
+              step="1"
+              placeholder="How many Systems?"
+              class="home-textinput3 input"
+              onchange="Calculator()"
+            />
+
+            <span class="home-text24">Device 2</span>
+            <span class="home-text27">12 Credits Per Device</span>
+            <input
+              type="number"
+              id="dev2"
+              min="0"
+              step="1"
+              placeholder="How many Systems?"
+              class="home-textinput5 input"
+              onchange="Calculator()"
+
+            />
+
+            <span class="home-text25">Device 3</span>
+            <span class="home-text28">06 Credits Per Device</span>
+            <input
+              type="number"
+              id="dev3"
+              min="0"
+              step="1"
+              placeholder="How many Systems?"
+              class="home-textinput4 input"
+              onchange="Calculator()"
+
+            />
+
+            <span class="home-text30">Device 4</span>
+            <span class="home-text26">04 Credits Per Device</span>
+            <input
+              type="number"
+              id="dev4"
+              min="0"
+              step="1"
+              placeholder="How many Systems?"
+              class="home-textinput6 input"
+              onchange="Calculator()"
+
+            />
+            <span class="home-text34">
+              Select the Add-Ons you would like to purchase:
+            </span>
+
+            <span class="home-text35">ADDON1</span>
+            <input type="checkbox" id="add1" onclick="Calculator()" class="home-checkbox" />
+
+            <span class="home-text36">ADDON2</span>
+            <input type="checkbox" id="add2" onclick="Calculator()" class="home-checkbox1" />
+
+            <span class="home-text37">ADDON3</span>
+            <input type="checkbox" id="add3" onclick="Calculator()" class="home-checkbox2" />
+
+            <span class="home-text38">ADDON4</span>
+            <input type="checkbox" id="add4" onclick="Calculator()" class="home-checkbox3" />
+
+            <span class="home-text39">ADDON5</span>
+            <input type="checkbox" id="add5" onclick="Calculator()" class="home-checkbox4" />
+
+            <span class="home-text40">Select your currency:</span>
+            <select class="home-select">
+              <option value="eur">Euro</option>
+              <option value="usd">USD</option>
+              <option value="gbp">GBP</option>
+            </select>
+
+        </div>
+        <div class="home-container2">
+                <form action="">
+                    <span class="home-text15">Contact Details</span>
+                    <input
+                    type="text"
+                    placeholder="Name*"
+                    class="home-textinput input"
+                    />
+                    <input
+                    type="text"
+                    placeholder="E-Mail*"
+                    class="home-textinput1 input"
+                    />
+                    <input
+                    type="text"
+                    placeholder="Company*"
+                    class="home-textinput2 input"
+                    />
+                    <span class="home-text16">
+                    <span>If you submit the form by clicking &quot;SUBMIT&quot;, you agree with our</span>
+                    <br />
+                    <br />
+                    </span>
+                    <a
+                        href="https://example.com"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        class="home-link"
+                        >
+                        terms of use
+                    </a>
+                    <button class="home-button1 button">SUBMIT</button>
+                </form>
+        </div>
+        
+        <div class="home-container1">
+            <span class="home-text">Total Summary:</span>
+
+            <span class="home-text01">Total Devices</span>
+            <span class="home-text10" id="devices">0</span>
+
+            <span class="home-text02">Total Credits Requiered</span>
+            <span class="home-text11" id="tokens">0</span>
+
+            <span class="home-text03">Support (Annual Cost For Ongoing Support)</span>
+            <span class="home-text13">Text</span>
+
+            <span class="home-text04">
+              <span>Total Cost For License</span>
+              <br />
+              <span>(One Time Payment)</span>
+              <br />
+            </span>
+            <span class="home-text12">20 Euro</span>
+
+            <span class="home-text09">Total Cost</span>
+            <span class="home-text14">50</span>
+
+
+            <button class="home-button button">SUBMIT</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function Calculator(){
+            var x = document.getElementById('dev1').value*1;
+            var y = document.getElementById('dev2').value*1;
+            var z = document.getElementById('dev3').value*1;
+            var a = document.getElementById('dev4').value*1;
+
+            document.getElementById('devices').innerHTML = x+y+z+a;
+
+            x = x*20;
+            y = y*12;
+            z = z*6;
+            a = a*4;
+
+            var cb1 = document.getElementById('add1');
+            var cb2 = document.getElementById('add2');
+            var cb3 = document.getElementById('add3');
+            var cb4 = document.getElementById('add4');
+            var cb5 = document.getElementById('add5');
+
+            let count = 0;
+
+            if(cb1.checked == true || cb2.checked == true || cb3.checked == true || cb4.checked == true || cb5.checked == true){
+                if (cb1.checked == true){
+                    count = count+1;
+                }
+                if (cb2.checked == true){
+                    count = count+1;
+                }
+                if (cb3.checked == true){
+                    count = count+1;
+                }
+                if (cb4.checked == true){
+                    count = count+1;
+                }
+                if (cb5.checked == true){
+                    count = count+1;
+                }
+                let sum = x+y+z+a;
+                let procentage = sum * 0.3;
+                let extratokens = count * procentage;
+                let totaltokens = sum + extratokens;
+
+                document.getElementById('tokens').innerHTML = totaltokens;
+
+            }else{
+            document.getElementById('tokens').innerHTML = x+y+z+a;
+            }
+
+
+            
+        }
+    </script>
+
+      </body>
 </html>
