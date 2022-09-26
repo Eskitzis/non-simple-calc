@@ -148,7 +148,7 @@
               <span>(One Time Payment)</span>
               <br />
             </span>
-            <span class="home-text12">20 Euro</span>
+            <span class="home-text12" id="licensecost">0</span>
 
             <span class="home-text03">Support (Annual Cost For Ongoing Support)</span>
             <span class="home-text13" id="annualsub">0</span>
@@ -260,18 +260,22 @@
             // End Stair Cost Calculator
 
             // Currency Converter
+            var license = 20;
             var currency = document.getElementById('selectcurrency').value;
             if (currency=='eur'){
-                document.getElementById('totalcost').innerHTML = cost.toFixed(2);
-                document.getElementById('annualsub').innerHTML = (cost*0.2).toFixed(2);
+                document.getElementById('totalcost').innerHTML = '€' + " " + cost.toFixed(2);
+                document.getElementById('annualsub').innerHTML = '€' + " " + (cost*0.2).toFixed(2);
+                document.getElementById('licensecost').innerHTML =  '€' + " " + license.toFixed(2);
 
             }else if (currency=='usd') {
-                document.getElementById('totalcost').innerHTML = (cost*0.96).toFixed(2);
-                document.getElementById('annualsub').innerHTML = ((cost*0.2)*0.96).toFixed(2);
+                document.getElementById('totalcost').innerHTML = '$' + " " + (cost*0.96).toFixed(2);
+                document.getElementById('annualsub').innerHTML = '$' + " " + ((cost*0.2)*0.96).toFixed(2);
+                document.getElementById('licensecost').innerHTML =  '$' + " " + (license*0.96).toFixed(2);
 
             }else if (currency=='gbp') {
-                document.getElementById('totalcost').innerHTML = (cost*0.9).toFixed(2);
-                document.getElementById('annualsub').innerHTML = ((cost*0.2)*0.9).toFixed(2);
+                document.getElementById('totalcost').innerHTML = '£' + " " + (cost*0.9).toFixed(2);
+                document.getElementById('annualsub').innerHTML = '£' + " " + ((cost*0.2)*0.9).toFixed(2);
+                document.getElementById('licensecost').innerHTML =  '£' + " " + (license*0.9).toFixed(2);
             }
             // End Currence Converter
         }
