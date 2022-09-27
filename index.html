@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/jdisc.png">
     <link rel="stylesheet" href="styles/style.css">
@@ -11,8 +10,9 @@
 </head>
 
 <body>
+<div class="container">
     <div>
-        <div class="home-container3">
+        <div class="home-container3 container-fluid">
             <span class="home-text31">
                 <br />
                 <span>Enter how many devices you want:</span>
@@ -28,6 +28,8 @@
               placeholder="How many Systems?"
               class="home-textinput3 input"
               onchange="Calculator()"
+              onkeyup="if(this.value<0){this.value= this.value * -1}"
+
             />
 
             <span class="home-text24">Device 2</span>
@@ -40,6 +42,7 @@
               placeholder="How many Systems?"
               class="home-textinput5 input"
               onchange="Calculator()"
+              onkeyup="if(this.value<0){this.value= this.value * -1}"
 
             />
 
@@ -53,6 +56,7 @@
               placeholder="How many Systems?"
               class="home-textinput4 input"
               onchange="Calculator()"
+              onkeyup="if(this.value<0){this.value= this.value * -1}"
 
             />
 
@@ -66,6 +70,7 @@
               placeholder="How many Systems?"
               class="home-textinput6 input"
               onchange="Calculator()"
+              onkeyup="if(this.value<0){this.value= this.value * -1}"
 
             />
             <span class="home-text34">
@@ -95,44 +100,6 @@
             </select>
 
         </div>
-        <div class="home-container2">
-                <form method="post" name="myemailform" action="form-to-email.php">
-                    <span class="home-text15">Contact Details</span>
-                    <input
-                    type="text"
-                    placeholder="Name*"
-                    class="home-textinput input"
-                    name="name"
-                    />
-                    <input
-                    type="text"
-                    placeholder="E-Mail*"
-                    class="home-textinput1 input"
-                    name="email"
-                    />
-                    <input
-                    type="text"
-                    placeholder="Company*"
-                    class="home-textinput2 input"
-                    name="company"
-                    />
-                    <span class="home-text16">
-                    <span>If you submit the form by clicking &quot;SUBMIT&quot;, you agree with our</span>
-                    <br />
-                    <br />
-                    </span>
-                    <a
-                        href="https://example.com"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        class="home-link"
-                        >
-                        terms of use
-                    </a>
-                    <input class="home-button1 button" type="submit" name='submit' value="submit">
-                </form>
-        </div>
-        
         <div class="home-container1">
             <span class="home-text">Total Summary:</span>
 
@@ -154,14 +121,118 @@
             <span class="home-text13" id="annualsub">0</span>
 
             <span class="home-text09">Total Cost</span>
-            <span class="home-text14" id="totalcost">0</span>
+            <span class="home-text14" id="final">0</span>
 
+            <input class="home-button button" type="submit" value="SUBMIT" onclick="showdiv(this.value)">SUBMIT</input>
+            <input class="home-button2 button" type="submit" value="BUY" onclick="showdiv(this.value)">BUY</input>
+        </div>
 
-            <button class="home-button button">SUBMIT</button>
+        <div class="home-container2" style="display:none;" id="formdiv">
+                <form method="post" name="myemailform" action="form-to-email.php">
+                    <span class="home-text15">Contact Details</span>
+                    <input
+                    type="text"
+                    placeholder="Name*"
+                    class="home-textinput input"
+                    name="name"
+                    />
+                    <input
+                    type="text"
+                    placeholder="E-Mail*"
+                    class="home-textinput1 input"
+                    name="email"
+                    />
+                    <input
+                    type="text"
+                    placeholder="Company*"
+                    class="home-textinput2 input"
+                    name="company"
+                    />
+                    <input
+                    type="text"
+                    placeholder="Telephone Number"
+                    class="textinput3 input"
+                    name="tel"
+                    />
+
+                    <span class="home-text16">
+                    <span>If you submit the form by clicking &quot;SUBMIT&quot;, you agree with our</span>
+                    <br />
+                    <br />
+                    </span>
+                    <a
+                        href="https://example.com"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        class="home-link"
+                        >
+                        terms of use
+                    </a>
+                    <input class="home-button1 button" type="submit" name='submit' value="submit">
+                </form>
+        </div>
+        <div class="home-container2" style="display:none;" id="buydiv">
+            <form method="post" name="myemailform" action="">
+                <span class="home-text15">Payment Details</span>
+                <input
+                type="text"
+                placeholder="Card Number*"
+                class="home-textinput input"
+                name="number"
+                />
+                <input
+                type="text"
+                placeholder="Card Holders Name*"
+                class="home-textinput1 input"
+                name="name"
+                />
+                <input
+                type="text"
+                placeholder="CVV*"
+                class="home-textinput2 input"
+                name="cvv"
+                />
+                <input
+                type="text"
+                placeholder="Expiring Date"
+                class="textinput3 input"
+                name="exp"
+                />
+
+                <span class="home-text16">
+                <span>If you click BUY, you agree with our</span>
+                <br />
+                <br />
+                </span>
+                <a
+                    href="https://example.com"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    class="home-link"
+                    >
+                    terms of use
+                </a>
+                <input class="home-button3 button" type="submit" name='submit' value="BUY">
+            </form>
+
         </div>
     </div>
-
+</div>
     <script type="text/javascript">
+        function showdiv(val){
+            if (val=="SUBMIT") {
+                document.getElementById('formdiv').style.display = "block";
+            }
+            else
+                document.getElementById('formdiv').style.display = "none";
+            if (val=="BUY") {
+                document.getElementById('buydiv').style.display = "block";
+            }
+            else
+            document.getElementById('buydiv').style.display = "none";
+            console.log(val);
+        }
+        showdiv(val);
         function Calculator(){
             // Get Devices
             var x = document.getElementById('dev1').value*1;
@@ -260,22 +331,25 @@
             // End Stair Cost Calculator
 
             // Currency Converter
-            var license = 20;
             var currency = document.getElementById('selectcurrency').value;
+            var finalcost = cost+(cost*0.2)
             if (currency=='eur'){
-                document.getElementById('totalcost').innerHTML = '€' + " " + cost.toFixed(2);
+                document.getElementById('licensecost').innerHTML = '€' + " " + cost.toFixed(2);
                 document.getElementById('annualsub').innerHTML = '€' + " " + (cost*0.2).toFixed(2);
-                document.getElementById('licensecost').innerHTML =  '€' + " " + license.toFixed(2);
+                document.getElementById('final').innerHTML =  '€' + " " + finalcost.toFixed(2);
+
 
             }else if (currency=='usd') {
-                document.getElementById('totalcost').innerHTML = '$' + " " + (cost*0.96).toFixed(2);
+                document.getElementById('licensecost').innerHTML = '$' + " " + (cost*0.96).toFixed(2);
                 document.getElementById('annualsub').innerHTML = '$' + " " + ((cost*0.2)*0.96).toFixed(2);
-                document.getElementById('licensecost').innerHTML =  '$' + " " + (license*0.96).toFixed(2);
+                document.getElementById('final').innerHTML =  '$' + " " + (finalcost*0.96).toFixed(2);
+
 
             }else if (currency=='gbp') {
-                document.getElementById('totalcost').innerHTML = '£' + " " + (cost*0.9).toFixed(2);
+                document.getElementById('licensecost').innerHTML = '£' + " " + (cost*0.9).toFixed(2);
                 document.getElementById('annualsub').innerHTML = '£' + " " + ((cost*0.2)*0.9).toFixed(2);
-                document.getElementById('licensecost').innerHTML =  '£' + " " + (license*0.9).toFixed(2);
+                document.getElementById('final').innerHTML =  '£' + " " + (finalcost*0.9).toFixed(2);
+
             }
             // End Currence Converter
         }
