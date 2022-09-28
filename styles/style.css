@@ -9,11 +9,10 @@ html,body{
   grid-template-columns: 1fr 1fr 1fr; 
   grid-template-rows: 1fr 1fr 1fr; 
   gap: 0px 0px;
-  overflow:auto
   grid-template-areas: 
-    "container1 container2 ."
-    "container1 container3 ."
-    ". . ."; 
+  "Container1 Container2 ."
+  "Container1 Container3 ."
+  ". . ."; 
 }
 .container1 { 
   grid-area: Container1;
@@ -26,8 +25,8 @@ html,body{
 }
 .container2 { 
   grid-area: Container2; 
-  position: absolute;
   background-color: #dbe2ed;
+  position: absolute;
   width: 565px;
   top: 9px;
   left: 575px;
@@ -36,8 +35,8 @@ html,body{
 }
 .container3 { 
   grid-area: Container3; 
-  position: absolute;
   background-color: #dbe2ed;
+  position: absolute;
   width: 565px;
   top: 377px;
   left: 575px;
