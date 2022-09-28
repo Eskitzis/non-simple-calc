@@ -12,11 +12,12 @@
 .column {
   flex: 25%;
   padding: 20px;
+  box-shadow: 0px 0px 15px 3px #82f4ff;
+  background-color:rgb(177, 174, 174);
 }
 .column2 {
   flex: 25%;
   padding: 20px;
-  background-color:#bbb;
 }
 
 
