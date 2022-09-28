@@ -10,154 +10,160 @@
 </head>
 
 <body>
-        <div class="container1">
-            <span class="home-text31">
-                <br />
-                <span>Enter how many devices you want:</span>
-            </span>
-
-            <span class="home-text22">Device 1</span>
-            <span class="home-text23">20 Credits Per Device</span>
+<div class="row">
+    <div class="column" style="background-color:#aaa;">
+        <h2>Enter how many devices you want:</h2>
+      
+        <h4>Device1</h4>
+        <div>
             <input
-              type="number"
-              id="dev1"
-              min="0"
-              step="1"
-              placeholder="How many Systems?"
-              class="home-textinput3 input"
-              onchange="Calculator()"
-              onkeyup="if(this.value<0){this.value= this.value * -1}"
-
-            />
-
-            <span class="home-text24">Device 2</span>
-            <span class="home-text27">12 Credits Per Device</span>
-            <input
-              type="number"
-              id="dev2"
-              min="0"
-              step="1"
-              placeholder="How many Systems?"
-              class="home-textinput5 input"
-              onchange="Calculator()"
-              onkeyup="if(this.value<0){this.value= this.value * -1}"
-
-            />
-
-            <span class="home-text25">Device 3</span>
-            <span class="home-text28">06 Credits Per Device</span>
-            <input
-              type="number"
-              id="dev3"
-              min="0"
-              step="1"
-              placeholder="How many Systems?"
-              class="home-textinput4 input"
-              onchange="Calculator()"
-              onkeyup="if(this.value<0){this.value= this.value * -1}"
-
-            />
-
-            <span class="home-text30">Device 4</span>
-            <span class="home-text26">04 Credits Per Device</span>
-            <input
-              type="number"
-              id="dev4"
-              min="0"
-              step="1"
-              placeholder="How many Systems?"
-              class="home-textinput6 input"
-              onchange="Calculator()"
-              onkeyup="if(this.value<0){this.value= this.value * -1}"
-
-            />
-            <span class="home-text34">
-              Select the Add-Ons you would like to purchase:
-            </span>
-
-            <span class="home-text35">ADDON1</span>
-            <input type="checkbox" id="add1" onclick="Calculator()" class="home-checkbox" />
-
-            <span class="home-text36">ADDON2</span>
-            <input type="checkbox" id="add2" onclick="Calculator()" class="home-checkbox1" />
-
-            <span class="home-text37">ADDON3</span>
-            <input type="checkbox" id="add3" onclick="Calculator()" class="home-checkbox2" />
-
-            <span class="home-text38">ADDON4</span>
-            <input type="checkbox" id="add4" onclick="Calculator()" class="home-checkbox3" />
-
-            <span class="home-text39">ADDON5</span>
-            <input type="checkbox" id="add5" onclick="Calculator()" class="home-checkbox4" />
-
-            <span class="home-text40">Select your currency:</span>
-            <select class="home-select" id="selectcurrency" onchange="Calculator()">
-              <option value="eur">Euro</option>
-              <option value="usd">USD</option>
-              <option value="gbp">GBP</option>
-            </select>
-
-        </div>
-        <div class="container2">
-            <span class="home-text">Total Summary:</span>
-
-            <span class="home-text01">Total Devices</span>
-            <span class="home-text10" id="devices">0</span>
-
-            <span class="home-text02">Total Credits Requiered</span>
-            <span class="home-text11" id="tokens">0</span>
-
-            <span class="home-text04">
-              <span>Total Cost For License</span>
-              <br />
-              <span>(One Time Payment)</span>
-              <br />
-            </span>
-            <span class="home-text12" id="licensecost">0</span>
-
-            <span class="home-text03">Support (Annual Cost For Ongoing Support)</span>
-            <span class="home-text13" id="annualsub">0</span>
-
-            <span class="home-text09">Total Cost</span>
-            <span class="home-text14" id="final">0</span>
-
-            <input class="home-button button" type="submit" value="SUBMIT" onclick="showdiv(this.value)"></input>
-            <input class="home-button2 button" type="submit" value="BUY" onclick="showdiv(this.value)"></input>
+            type="number"
+            id="dev1"
+            min="0"
+            step="1"
+            placeholder="20 Credits Per Device"
+            onchange="Calculator()"
+            onkeyup="if(this.value<0){this.value= this.value * -1}"
+          />
         </div>
 
-        <div class="container3" style="display:none;" id="formdiv">
+        <h4>Device2</h4>
+        <div>
+            <input
+            type="number"
+            id="dev2"
+            min="0"
+            step="1"
+            placeholder="12 Credits Per Device"
+            onchange="Calculator()"
+            onkeyup="if(this.value<0){this.value= this.value * -1}"
+          />           
+        </div>
+
+        <h4>Device3</h4>
+        <div>
+            <input
+            type="number"
+            id="dev3"
+            min="0"
+            step="1"
+            placeholder="06 Credits Per Device"
+            onchange="Calculator()"
+            onkeyup="if(this.value<0){this.value= this.value * -1}"
+          />
+        </div>
+
+        <h4>Device4</h4>
+        <div>
+            <input
+            type="number"
+            id="dev4"
+            min="0"
+            step="1"
+            placeholder="04 Credits Per Device"
+            onchange="Calculator()"
+            onkeyup="if(this.value<0){this.value= this.value * -1}"
+        
+          />
+        </div>
+        <h4>Select the Add-Ons you would like to purchase:</h4>
+        <div>
+            <input type="checkbox" id="add1" onclick="Calculator()" class="home-checkbox" />ADDON1
+        </div>
+
+        <div>
+            <input type="checkbox" id="add2" onclick="Calculator()" class="home-checkbox1" />ADDON2
+        </div>
+
+        <div>
+            <input type="checkbox" id="add3" onclick="Calculator()" class="home-checkbox2" />ADDON3
+        </div>
+
+        <div>
+            <input type="checkbox" id="add4" onclick="Calculator()" class="home-checkbox3" />ADDON4
+        </div>
+
+        <div>
+            <input type="checkbox" id="add5" onclick="Calculator()" class="home-checkbox4" />ADDON5
+        </div>
+
+        <h4>Select your currency:</h4>
+        <select class="select-box" id="selectcurrency" onchange="Calculator()">
+          <option value="eur">Euro</option>
+          <option value="usd">USD</option>
+          <option value="gbp">GBP</option>
+        </select>
+      
+    </div>
+      
+        <div class="column" style="background-color:#bbb;">
+            <h2>Total Summary:</h2>
+            <div>
+                <span class="span-class">Total Devices:</span>                  
+                <span class="span-class" id="devices">0</span>
+            </div>    
+
+            <div>
+                <span class="span-class">Total Credits Requiered:</span>
+                <span class="span-class" id="tokens">0</span>
+            </div>
+
+            <div>
+                <span class="span-class">Total Cost For License <span>(One Time Payment)</span>:</span>
+                <span class="span-class" id="licensecost">0</span>
+            </div>
+
+            <div>
+                <span class="span-class">Support (Annual Cost For Ongoing Support):</span>
+                <span class="span-class" id="annualsub">0</span>  
+            </div>
+            <div>
+                <span class="span-class">Total Cost:</span>
+                <span class="span-class" id="final">0</span>
+            </div>
+      
+
+          <input class="button-green" type="submit" value="SUBMIT" onclick="showdiv(this.value)"></input>
+          <input class="button-blue" type="submit" value="BUY" onclick="showdiv(this.value)"></input>
+
+
+            <div class="column2" style="display:none;" id="formdiv">
                 <form method="post" name="myemailform" action="form-to-email.php">
-                    <span class="home-text15">Contact Details</span>
-                    <input
-                    type="text"
-                    placeholder="Name*"
-                    class="home-textinput input"
-                    name="name"
-                    />
-                    <input
-                    type="text"
-                    placeholder="E-Mail*"
-                    class="home-textinput1 input"
-                    name="email"
-                    />
-                    <input
-                    type="text"
-                    placeholder="Company*"
-                    class="home-textinput2 input"
-                    name="company"
-                    />
-                    <input
-                    type="text"
-                    placeholder="Telephone Number"
-                    class="textinput3 input"
-                    name="tel"
-                    />
 
-                    <span class="home-text16">
-                    <span>If you submit the form by clicking &quot;SUBMIT&quot;, you agree with our</span>
-                    <br />
-                    <br />
-                    </span>
+                    <h2>Contact Details</h2>
+                    <div>
+                        <input
+                        type="text"
+                        placeholder="Name*"
+                        name="name"
+                        />
+                    </div>
+                    <br>
+                    <div>
+                        <input
+                        type="text"
+                        placeholder="E-Mail*"
+                        name="email"
+                        />
+                    </div>
+                    <br>
+                    <div>
+                        <input
+                        type="text"
+                        placeholder="Company*"
+                        name="company"
+                        />
+                    </div>
+                    <br>
+                    <div>
+                        <input
+                        type="text"
+                        placeholder="Telephone Number"
+                        name="tel"
+                        />
+                    </div>
+                    <br>
+                    <span class="span-class">If you submit the form by clicking &quot;SUBMIT&quot;, you agree with our</span>
                     <a
                         href="https://example.com"
                         target="_blank"
@@ -166,55 +172,68 @@
                         >
                         terms of use
                     </a>
-                    <input class="home-button1 button" type="submit" name='submit' value="submit">
+                    .
+                    <br>
+                    <div>
+                        <input class="button-green" type="submit" name='submit' value="SUBMIT">
+                    </div>
                 </form>
-        </div>
-        <div class="container3" style="display:none;" id="buydiv">
-            <form method="post" name="myemailform" action="">
-                <span class="home-text15">Payment Details</span>
-                <input
-                type="text"
-                placeholder="Card Number*"
-                class="home-textinput input"
-                name="number"
-                />
-                <input
-                type="text"
-                placeholder="Card Holders Name*"
-                class="home-textinput1 input"
-                name="name"
-                />
-                <input
-                type="text"
-                placeholder="CVV*"
-                class="home-textinput2 input"
-                name="cvv"
-                />
-                <input
-                type="text"
-                placeholder="Expiring Date"
-                class="textinput3 input"
-                name="exp"
-                />
+            </div>
+            <div class="column2" style="display:none;" id="buydiv">
+                <form method="post" name="myemailform" action="form-to-email.php">
 
-                <span class="home-text16">
-                <span>If you click BUY, you agree with our</span>
-                <br />
-                <br />
-                </span>
-                <a
-                    href="https://example.com"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    class="home-link"
-                    >
-                    terms of use
-                </a>
-                <input class="home-button3 button" type="submit" name='submit' value="BUY">
-            </form>
-
-        </div>
-
+                    <h2>Payment Details</h2>
+                    <div>
+                        <input
+                        type="text"
+                        placeholder="Credit Card Number*"
+                        name="number"
+                        />
+                    </div>
+                    <br>
+                    <div>
+                        <input
+                        type="text"
+                        placeholder="Card Holder*"
+                        name="name"
+                        />
+                    </div>
+                    <br>
+                    <div>
+                        <input
+                        type="text"
+                        placeholder="CVV*"
+                        name="cvv"
+                        />
+                    </div>
+                    <br>
+                    <div>
+                        <input
+                        type="text"
+                        placeholder="Expire Date*"
+                        name="exp"
+                        />
+                    </div>
+                    <br>
+                    <span class="span-class">If you hit BUY, you agree with our</span>
+                    <a
+                        href="https://example.com"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        class="home-link"
+                        >
+                        terms of use
+                    </a>
+                    .
+                    <br>
+                    <div>
+                        <input class="button-blue" type="submit" name='submit' value="BUY">
+                    </div>
+                </form>            
+            </div>
+    </div>
+</div>
+      
     <script type="text/javascript">
         function showdiv(val){
             if (val=="SUBMIT") {

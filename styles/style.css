@@ -1,198 +1,45 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-.container1 { 
-  position: absolute;
-  background-color: #dbe2ed;
-  width: 49.5%;
-  top: 9px;
-  height: 727px;
-  box-shadow: 0px 0px 15px 3px rgba(132, 237, 247, 0.99);
+* {
+  box-sizing: border-box;
 }
-.container2 { 
-  background-color: #dbe2ed;
-  position: absolute;
-  width: 49.5%;
-  top: 9px;
-  left: 50%;
-  height: 359px;
-  box-shadow: 0px 0px 15px 3px #82f4ff;
+
+/* Container for flexboxes */
+.row {
+  display: flex;
+  flex-wrap: wrap;
 }
-.container3 { 
-  background-color: #dbe2ed;
-  position: absolute;
-  width: 49.5%;
-  top: 377px;
-  left: 50%;
-  height: 359px;
-  box-shadow: 0px 0px 15px 3px #82f4ff;
+
+/* Create four equal columns */
+.column {
+  flex: 25%;
+  padding: 20px;
 }
+.column2 {
+  flex: 25%;
+  padding: 20px;
+  background-color:#bbb;
+}
+
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (max-width: 992px) {
+  .column, .column2 {
+    flex: 50%;
+  }
+}
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
-  .container, .container1, .container2, .container3 {
-    width: 100%;
-    float: left;
-    }
+  .row {
+    flex-direction: column;
+  }
 }
-.home-text, .home-text01, .home-text02,.home-text03, .home-text04, .home-text05, 
-.home-text06, .home-text07, .home-text08,.home-text09, .home-text10, .home-text11, 
-.home-text12, .home-text13, .home-text14,.home-text15, .home-text16, .home-text17, 
-.home-text18, .home-text19, .home-text20,.home-text21, .home-text22, .home-text23, 
-.home-text24, .home-text25, .home-text26,.home-text27, .home-text28, .home-text29, 
-.home-text30, .home-text31, .home-text32, .home-text33,.home-text34, .home-text35, 
-.home-text36, .home-text37, .home-text38, .home-text39,.home-text40 {
-  color: #313030;
-  position: absolute;
+.select-box{
+  width: 200px;
 }
-.home-text{
-  top: 10px;
-  left: 40px;
-  font-size: 18px;
+.span-class{
+  line-height: 3.0;
 }
-.home-text01 {
-  top: 80px;
-  left: 40px;
-}
-.home-text02 {
-  top: 120px;
-  left: 40px;
-}
-.home-text03 {
-  top: 200px;
-  left: 40px;
-}
-.home-text04 {
-  top: 150px;
-  left: 40px;
-}
-.home-text09 {
-  top: 260px;
-  left: 40px;
-  font-size: 18px;
-}
-.home-text10 {
-  top: 80px;
-  right: 40px;
-}
-.home-text11 {
-  top: 120px;
-  right: 40px;
-}
-.home-text12 {
-  top: 155px;
-  right: 40px;
-}
-.home-text13 {
-  top: 200px;
-  right: 40px;
-}
-.home-text14 {
-  top: 260px;
-  right: 40px;
-  font-size: 18px;
-}
-.home-text15 {
-  top: 25px;
-  left: 40px;
-}
-.home-text16 {
-  left: 40px;
-  bottom: 60px;
-  font-size: 10px;
-}
-.home-text22 {
-  top: 40px;
-  left: 42px;
-  font-size: 14px;
-}
-.home-text23 {
-  top: 40px;
-  right: 43px;
-  font-size: 14px;
-  text-align: justify;
-  text-transform: capitalize;
-}
-.home-text24 {
-  top: 140px;
-  left: 42px;
-  font-size: 14px;
-}
-.home-text25 {
-  top: 240px;
-  left: 43px;
-  font-size: 14px;
-}
-.home-text26 {
-  top: 340px;
-  right: 43px;
-  font-size: 14px;
-  text-align: justify;
-  text-transform: capitalize;
-}
-.home-text27 {
-  top: 140px;
-  right: 43px;
-  font-size: 14px;
-  text-align: justify;
-  text-transform: capitalize;
-}
-.home-text28 {
-  top: 240px;
-  right: 43px;
-  font-size: 14px;
-  text-align: justify;
-  text-transform: capitalize;
-}
-.home-text29 {
-  top: 40px;
-  right: 43px;
-  font-size: 14px;
-  text-align: justify;
-  text-transform: capitalize;
-}
-.home-text30 {
-  top: 340px;
-  left: 43px;
-  font-size: 14px;
-}
-.home-text31 {
-  top: -12px;
-  left: 40px;
-  font-size: 18px;
-}
-.home-text34 {
-  left: 40px;
-  bottom: 288px;
-  font-size: 18px;
-}
-.home-text35 {
-  top: 467px;
-  left: 80px;
-}
-.home-text36 {
-  top: 507px;
-  left: 80px;
-}
-.home-text37 {
-  top: 547px;
-  left: 80px;
-}
-.home-text38 {
-  top: 587px;
-  left: 80px;
-}
-.home-text39 {
-  top: 627px;
-  left: 80px;
-}
-.home-text40 {
-  top: 667px;
-  left: 40px;
-  font-size: 18px;
-}
-.home-button {
-  left: 40px;
-  bottom: 19px;
-  position: absolute;
-  text-align: center;
-  text-transform: uppercase;
+.button-green {
   background-color: #13aa52;
   border: 1px solid #13aa52;
   border-radius: 4px;
@@ -212,26 +59,21 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  
 }
-.home-button:hover {
+
+.button-green:hover {
   box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
   transform: translateY(-2px);
 }
 
 @media (min-width: 768px) {
-  .home-button {
+  .button-green {
     padding: 10px 30px;
   }
 }
-.home-button1 {
-  left: 40px;
-  bottom: 17px;
-  position: absolute;
-  text-align: center;
-  text-transform: uppercase;
-  background-color: #13aa52;
-  border: 1px solid #13aa52;
+.button-blue {
+  background-color: #002394;
+  border: 1px solid #002394;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
   box-sizing: border-box;
@@ -249,179 +91,19 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  
-}
-.home-button1:hover {
-  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
-  transform: translateY(-2px);
-}
-@media (min-width: 768px) {
-  .home-button1 {
-    padding: 10px 30px;
-  }
-}
-.home-button2 {
-  left: 180px;
-  bottom: 19px;
-  position: absolute;
-  text-align: center;
-  text-transform: uppercase;
-  background-color: #1f018d;
-  border: 1px solid #080079;
-  border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  outline: none;
-  outline: 0;
-  padding: 10px 25px;
-  text-align: center;
-  transform: translateY(0);
-  transition: transform 150ms, box-shadow 150ms;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  
-}
-.home-button2:hover {
-  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
-  transform: translateY(-2px);
-}
-@media (min-width: 768px) {
-  .home-button2 {
-    padding: 10px 30px;
-  }
-}
-.home-button3 {
-  left: 40px;
-  bottom: 17px;
-  position: absolute;
-  text-align: center;
-  text-transform: uppercase;
-  background-color: #1f018d;
-  border: 1px solid #080079;
-  border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  outline: none;
-  outline: 0;
-  padding: 10px 25px;
-  text-align: center;
-  transform: translateY(0);
-  transition: transform 150ms, box-shadow 150ms;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  
-}
-.home-button3:hover {
-  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
-  transform: translateY(-2px);
-}
-@media (min-width: 768px) {
-  .home-button3 {
-    padding: 10px 30px;
-  }
-}
-.home-textinput {
-  top: 70px;
-  left: 40px;
-  position: absolute;
-}
-.home-textinput1 {
-  top: 130px;
-  left: 40px;
-  position: absolute;
-}
-.home-textinput2 {
-  top: 190px;
-  left: 40px;
-  position: absolute;
-}
-.home-textinput3 {
-  top: 75px;
-  left: 40px;
-  position: absolute;
-  transition: 0.3s;
-  text-transform: lowercase;
-}
-.home-textinput4 {
-  top: 275px;
-  left: 40px;
-  position: absolute;
-  transition: 0.3s;
-  text-transform: lowercase;
 }
 
-.home-textinput5 {
-  top: 175px;
-  left: 40px;
-  position: absolute;
-  transition: 0.3s;
-  text-transform: lowercase;
+.button-blue:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
 }
 
-.home-textinput6 {
-  top: 375px;
-  left: 40px;
-  position: absolute;
-  transition: 0.3s;
-  text-transform: lowercase;
+@media (min-width: 768px) {
+  .button-blue {
+    padding: 10px 30px;
+  }
 }
-.textinput3 {
-  top: 250px;
-  left: 40px;
-  position: absolute;
+.input-class{
+  line-height: 0.5;
 }
-.home-select {
-  top: 697px;
-  left: 40px;
-  width: 32%;
-  position: absolute;
-  box-shadow: 5px 5px 10px 0px #d4d4d4;
-  border-color: var(--dl-color-gray-black);
-  border-width: 1px;
-  border-radius: var(--dl-radius-radius-radius4);
-  border-top-left-radius: var(--dl-radius-radius-radius4);
-}
-.home-link {
-  left: 40px;
-  color: #5375ff;
-  bottom: 60px;
-  position: absolute;
-  font-size: 10px;
-}
-.home-checkbox {
-  top: 470px;
-  left: 40px;
-  position: absolute;
-}
-.home-checkbox1 {
-  top: 510px;
-  left: 40px;
-  position: absolute;
-}
-.home-checkbox2 {
-  top: 550px;
-  left: 40px;
-  position: absolute;
-}
-.home-checkbox3 {
-  top: 590px;
-  left: 40px;
-  position: absolute;
-}
-.home-checkbox4 {
-  top: 630px;
-  left: 40px;
-  position: absolute;
-}
+
