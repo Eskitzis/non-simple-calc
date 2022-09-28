@@ -27,7 +27,7 @@
 }
 @media screen and (max-width: 600px) {
   .container, .container1, .container2, .container3 {
-    width: 50%;
+    width: 100%;
     float: left;
     }
 }
