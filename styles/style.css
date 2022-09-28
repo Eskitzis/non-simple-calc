@@ -1,44 +1,52 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
 html,body{
   display: grid;
   height: 100%;
   width: 100%;
 }
 .container {
-  display: flex;
-  flex-wrap: wrap;
-  width: auto;
- }
-.home-container1, .home-container2, .home-container3{
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "container1 container2 ."
+    "container1 container3 ."
+    ". . ."; 
+}
+.container1 { 
+  grid-area: Container1;
   position: absolute;
-  align-self: flex-end;
   background-color: #dbe2ed;
-  display: flex; 
-}
-.home-container1 {
-  top: 9px;
-  left: 565px;
-  height: 359px;
-  box-shadow: 0px 0px 15px 3px #82f4ff;
-}
-.home-container2 {
-  top: 377px;
-  left: 565px;
-  height: 359px;
-  box-shadow: 0px 0px 15px 3px #82f4ff;
-}
-.home-container3 {
+  width: 565px;
   top: 9px;
   height: 727px;
   box-shadow: 0px 0px 15px 3px rgba(132, 237, 247, 0.99);
 }
+.container2 { 
+  grid-area: Container2; 
+  position: absolute;
+  overflow: hidden;
+  background-color: #dbe2ed;
+  width: 565px;
+  top: 9px;
+  left: 575px;
+  height: 359px;
+  box-shadow: 0px 0px 15px 3px #82f4ff;
+}
+.container3 { 
+  grid-area: Container3; 
+  position: absolute;
+  overflow: hidden;
+  background-color: #dbe2ed;
+  width: 565px;
+  top: 377px;
+  left: 575px;
+  height: 359px;
+  box-shadow: 0px 0px 15px 3px #82f4ff;
+}
+
+
 .home-text, .home-text01, .home-text02,.home-text03, .home-text04, .home-text05, 
 .home-text06, .home-text07, .home-text08,.home-text09, .home-text10, .home-text11, 
 .home-text12, .home-text13, .home-text14,.home-text15, .home-text16, .home-text17, 
@@ -263,7 +271,6 @@ html,body{
   box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
   transform: translateY(-2px);
 }
-
 @media (min-width: 768px) {
   .home-button1 {
     padding: 10px 30px;
@@ -300,7 +307,6 @@ html,body{
   box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
   transform: translateY(-2px);
 }
-
 @media (min-width: 768px) {
   .home-button2 {
     padding: 10px 30px;
@@ -337,7 +343,6 @@ html,body{
   box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
   transform: translateY(-2px);
 }
-
 @media (min-width: 768px) {
   .home-button3 {
     padding: 10px 30px;
@@ -355,11 +360,6 @@ html,body{
 }
 .home-textinput2 {
   top: 190px;
-  left: 40px;
-  position: absolute;
-}
-.textinput3 {
-  top: 250px;
   left: 40px;
   position: absolute;
 }
@@ -392,6 +392,11 @@ html,body{
   position: absolute;
   transition: 0.3s;
   text-transform: lowercase;
+}
+.textinput3 {
+  top: 250px;
+  left: 40px;
+  position: absolute;
 }
 .home-select {
   top: 697px;
