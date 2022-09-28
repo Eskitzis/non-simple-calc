@@ -1,7 +1,13 @@
 * {
   box-sizing: border-box;
 }
+.divrow {
+  display: flex;
+}
 
+.divcolumn {
+  flex: 50%;
+}
 /* Container for flexboxes */
 .row {
   display: flex;
@@ -22,7 +28,6 @@
   background-color:rgba(116, 214, 253, 0.089);
 }
 
-
 /* On screens that are 992px wide or less, go from four columns to two columns */
 @media screen and (max-width: 992px) {
   .column, .column2 {
@@ -41,6 +46,9 @@
 }
 .span-class{
   line-height: 3.0;
+}
+.right{
+  text-align: right;
 }
 .button-green {
   background-color: #13aa52;
