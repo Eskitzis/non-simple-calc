@@ -5,10 +5,8 @@ if (isset($_POST['submit'])) {
 	$company = $_POST['company'];
 	$tel = $_POST['tel'];
 
-    $address1 = $_POST['address1'];
-    $address2 = $_POST['address2'];
+    $address1 = $_POST['address'];
     $city = $_POST['city'];
-    $st_pr = $_POST['st_pr'];
     $zipcode = $_POST['zipcode'];
     $cntr = $_POST['cntr'];
 
@@ -50,10 +48,8 @@ if (isset($_POST['submit'])) {
 					<th>E-Mail </th>
 					<th>Company </th>
 					<th>Telephone Number </th>
-                    <th>Address Line 1 </th>
-                    <th>Address Line 2 </th>
+                    <th>Address Line </th>
                     <th>City </th>
-                    <th>State/Province </th>
                     <th>Zip/Postal Code </th>
                     <th>Country </th>
 				</tr>
@@ -63,9 +59,7 @@ if (isset($_POST['submit'])) {
 					<td>$company</td>
 					<td>$tel</td>
                     <td>$address1</td>
-                    <td>$address2</td>
                     <td>$city</td>
-                    <td>$st_pr</td>
                     <td>$zipcode</td>
                     <td>$cntr</td>
 				</tr>
@@ -156,7 +150,7 @@ if (isset($_POST['submit'])) {
   flex: auto;
 	width: auto;
 }
-	
+
 .divcolumn2 {
   flex: 50%;
 	width: 25%
@@ -211,7 +205,7 @@ if (isset($_POST['submit'])) {
 	
 .select-box2{
   
-   width: 50%; 
+  width: 49%; 
   box-shadow: 5px 5px 10px 0px #d4d4d4;
   border-color: var(--dl-color-gray-black);
   border-width: px;
@@ -435,7 +429,7 @@ background-color:#ffffff;}
                     <span class="span-class">Cost For Add-Ons:</span>
                 </div>
                 <div class="divcolumn-right">
-                    <span class="span-class"  id="finaladdons">0</span>
+                    <span class="span-class"  id="finaladdons">€ 0.00</span>
                 </div>
             </div> 
 
@@ -444,7 +438,7 @@ background-color:#ffffff;}
                     <span class="span-class">Cost For License (Without Add-Ons):</span>
                 </div>
                 <div class="divcolumn-right">
-                    <span class="span-class"  id="finalwithoutaddons">0</span>
+                    <span class="span-class"  id="finalwithoutaddons">€ 0.00</span>
                 </div>
             </div> 
 
@@ -452,8 +446,8 @@ background-color:#ffffff;}
                 <div class="divcolumn">
                    Total Cost For License (One Time Payment):
                 </div>
-                <div class="divcolumn-right">
-                    <span class="span-class"  id="licensecost">0</span>
+                <div class="divcolumn-right"> 
+                    <span class="span-class"  id="licensecost">€ 0.00</span>
                 </div>
             </div>    
     
@@ -462,7 +456,7 @@ background-color:#ffffff;}
                   Support (Annual Cost For Ongoing Support):
                 </div>
                 <div class="divcolumn-right">
-                    <span class="span-class"  id="annualsub">0</span>  
+                    <span class="span-class"  id="annualsub">€ 0.00</span>  
                 </div>
             </div>    
 
@@ -471,7 +465,7 @@ background-color:#ffffff;}
                     <span class="span-class">Total Cost:</span>
                 </div>
                 <div class="divcolumn-right">
-                    <span class="span-class" id="final">0</span>                   
+                    <span class="span-class" id="final">€ 0.00</span>                   
                 </div>
             </div>
       
@@ -483,23 +477,20 @@ background-color:#ffffff;}
             <div class="column2" style="display:block;" id="formdiv">
                 <form method="post" name="myemailform">
                     <h2>Contact Details</h2>
-                    <div>
-                        <input 
-                        type="text" class="select-box2"
-                        placeholder="Name*"
-                        name="name"
-						required
-                        />
-                    </div>
-                    <br>
-                    <div>
-                        <input class="select-box2"
-                        type="email"
-                        placeholder="E-Mail*"
-                        name="email"
-						required
-                        />
-                    </div>
+                        <div>
+                            <input 
+                            type="text" class="select-box2"
+                            placeholder="Name*"
+                            name="name"
+                            required
+                            />
+                            <input class="select-box2"
+                            type="email"
+                            placeholder="E-Mail*"
+                            name="email"
+                            required
+                            />
+                        </div>
                     <br>
                     <div>
                         <input class="select-box2"
@@ -508,9 +499,6 @@ background-color:#ffffff;}
                         name="company"
 						required
                         />
-                    </div>
-                    <br>
-                    <div>
                         <input class="select-box2"
                         type="text"
                         placeholder="Telephone Number*"
@@ -521,20 +509,9 @@ background-color:#ffffff;}
                     <div>
                         <input class="select-box2"
                         type="text"
-                        placeholder="Address Line 1"
-                        name="address1"
+                        placeholder="Address Line"
+                        name="address"
                         />
-                    </div>
-                    <br>
-                    <div>
-                        <input class="select-box2"
-                        type="text"
-                        placeholder="Address Line 2"
-                        name="address2"
-                        />
-                    </div>
-                    <br>
-                    <div>
                         <input class="select-box2"
                         type="text"
                         placeholder="City"
@@ -545,20 +522,9 @@ background-color:#ffffff;}
                     <div>
                         <input class="select-box2"
                         type="text"
-                        placeholder="State/Province"
-                        name="st_pr"
-                        />
-                    </div>
-                    <br>
-                    <div>
-                        <input class="select-box2"
-                        type="text"
                         placeholder="Zip/Postal Code"
                         name="zipcode"
                         />
-                    </div>
-                    <br>
-                    <div>
                         <input class="select-box2"
                         type="text"
                         placeholder="Country"
